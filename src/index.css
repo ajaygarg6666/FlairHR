@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: #f8f9ff;
+    --foreground: #0b1c30;
+    --primary: #1A73E8;
+    --primary-foreground: #ffffff;
+    --secondary: #4648d4;
+    --secondary-foreground: #ffffff;
+    --surface: #ffffff;
+    --surface-variant: #e5eeff;
+    --on-surface: #0b1c30;
+    --on-surface-variant: #414754;
+    --outline: #727785;
+    --outline-variant: #c1c6d6;
+    --error: #ba1a1a;
+    --border: #e2e8f0;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+/* Custom Node Styles */
+.react-flow__node-customNode {
+  @apply !p-0 !border-none !bg-transparent !shadow-none;
+}
+
+.react-flow__handle {
+  @apply !w-1.5 !h-1.5 !bg-slate-300 !border-white !opacity-0 transition-opacity duration-200;
+}
+
+.group:hover .react-flow__handle {
+  @apply !opacity-100;
+}
+
+.react-flow__edge-path {
+  @apply stroke-slate-300 stroke-[2];
+}
+
+.react-flow__edge.selected .react-flow__edge-path {
+  @apply stroke-primary stroke-[3];
+}
